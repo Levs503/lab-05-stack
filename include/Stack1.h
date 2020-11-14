@@ -45,7 +45,7 @@ void Stack1<T>::push(const T& value) {
 template <typename T>
 void Stack1<T>::push(T&& value) {
   static_assert(std::is_move_constructible_v<T>, "no move constructor");
-  lastNode = new Node<T>(move(value), lastNode);
+  lastNode = new Node<T>(std::move(value), lastNode);
 }
 
 template <typename T>
@@ -65,9 +65,9 @@ const T& Stack1<T>::head() const {
 
 template <typename T>
 Stack1<T>::~Stack1() {
-  Node<T> topNode = lastNode;
+  Node<T>* topNode = lastNode;
   while (topNode) {
-    Node<T> next = topNode.getNode();
+    Node<T>* next = topNode->getNode();
     delete topNode;
     topNode = next;
   }

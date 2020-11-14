@@ -16,7 +16,7 @@ class Node{
   Node(T&& obj, Node<T>* prev_node);
   Node(T& obj, Node<T>* prev_node);
   const T& get() const;
-  const Node<T>* getNode() const;
+   Node<T>* getNode() const;
 };
 
 template <typename T>
@@ -31,12 +31,12 @@ const T& Node<T>::get() const {
   return object;
 }
 template <typename T>
-Node<T>::Node(T&& obj, Node<T>* prev_node): object(move(obj)), prevNode(prev_node) {}
+Node<T>::Node(T&& obj, Node<T>* prev_node): prevNode(prev_node),object(std::move(obj))  {}
 
 template <typename T>
-Node<T>::Node(T& obj, Node<T>* prev_node): object(obj), prevNode(prev_node) {}
+Node<T>::Node(T& obj, Node<T>* prev_node):prevNode(prev_node),  object(obj) {}
 template <typename T>
-const Node<T>* Node<T>::getNode() const {
+ Node<T>* Node<T>::getNode() const {
   return prevNode;
 }
 
