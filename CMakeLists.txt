@@ -31,21 +31,13 @@ find_package(GTest CONFIG REQUIRED)
 add_library(lab-05-stack STATIC
   # enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/sources/stack1.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/Stack1.cpp
 )
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
 )
 
-add_executable(main
-        # TODO: enum your files and delete this comment
-        ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-        )
-
-target_include_directories(main
-        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-        )
 # TODO: change template word to project name and delete this comment
 target_include_directories(lab-05-stack
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include

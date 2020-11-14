@@ -4,10 +4,11 @@
 
 #ifndef TEMPLATE_STACK1_H
 #define TEMPLATE_STACK1_H
+#include <cstddef>
 #include <stdexcept>
 #include <type_traits>
 #include <utility>
-#include <cstddef>
+
 #include "Node.h"
 
 template <typename T>
